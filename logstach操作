@@ -1,0 +1,6 @@
+[root@logaudit logstash-1.5.3]# cat start.sh
+nohup ./bin/logstash -f ./conf >/dev/null 2>log.txt &
+[root@logaudit logstash-1.5.3]# cat restart.sh
+ps aux|grep logstash|grep -v grep |awk '{print $2}' |xargs kill -9
+nohup ./bin/logstash -f ./conf  &
+[root@logaudit logstash-1.5.3]#
